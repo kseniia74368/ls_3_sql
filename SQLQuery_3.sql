@@ -23,12 +23,12 @@ CREATE TABLE [Doctors] (
 	[Phone] CHAR(10) NOT NULL,
 	[Premium] MONEY NOT NULL CHECK([Premium] > 0) DEFAULT 0,
 	[Salary] MONEY NOT NULL CHECK([Salary] > 0),
-	[Surname] NVARCHAR NOT NULL CHECK(LEN([Surname]) > 0)
+	[Surname] NVARCHAR(100) NOT NULL CHECK(LEN([Surname]) > 0)
 );
 
 CREATE TABLE [Examinations] (
-    [Id] INT IDENTITY (1, 1) NOT NULL PRIMARY KEY,
-    [DayOfWeek] INT NOT NULL CHECK (DayOfWeek >= 1 AND DayOfWeek <= 7),
+    	[Id] INT IDENTITY (1, 1) NOT NULL PRIMARY KEY,
+    	[DayOfWeek] INT NOT NULL CHECK (DayOfWeek >= 1 AND DayOfWeek <= 7),
 	[StartTime] TIME NOT NULL CHECK (StartTime >= '08:00' AND StartTime <= '18:00'),
 	[EndTime] TIME NOT NULL,
 	[Name] NVARCHAR(100) NOT NULL CHECK(LEN(Name) > 0) UNIQUE,
